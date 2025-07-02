@@ -39,7 +39,7 @@ This project provisions a fully functional Azure Virtual Machine using Terraform
 
 1. Clone the repo
 
-git clone https://github.com/<your-username>/azure-vm-tf.git
+git clone https://github.com/Ylli831/azure-vm-tf.git
 cd azure-vm-tf
 
 2. Set your variables
@@ -56,7 +56,7 @@ terraform apply
 Once Terraform finishes, it will output the public IP address of the VM.
 
 SSH into your VM:
-ssh yll@<public_ip>
+ssh <user>@<public_ip>
 
 Open in your browser:
 http://<public-ip>
@@ -68,9 +68,6 @@ http://<public_ip>:8081
 🛠 Configuration
 Edit these in terraform.tfvars:
 
-hcl
-Copy
-Edit
 resource_group_name = "yll-devops"
 location            = "westeurope"
 vm_name             = "yll-vm"
