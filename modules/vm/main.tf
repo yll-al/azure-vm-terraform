@@ -30,7 +30,9 @@ resource "azurerm_linux_virtual_machine" "vm" {
   resource_group_name = var.resource_group_name
   size                = var.vm_size
   admin_username      = var.admin_username
-
+  
+  custom_data = filebase64("${path.module}/cloud-init.sh")
+  
   network_interface_ids = [
     azurerm_network_interface.nic.id
   ]
@@ -48,8 +50,8 @@ resource "azurerm_linux_virtual_machine" "vm" {
 
   source_image_reference {
     publisher = "Canonical"
-    offer     = "UbuntuServer"
-    sku       = "18.04-LTS"
+    offer     = "0001-com-ubuntu-server-jammy"
+    sku       = "22_04-lts"
     version   = "latest"
   }
 
