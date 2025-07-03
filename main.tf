@@ -40,3 +40,18 @@ module "vm" {
   subnet_id = module.network.subnet_id
   nsg_id    = module.nsg.nsg_id
 }
+
+#AKS MODULE
+module "aks" {
+  source              = "./modules/aks"
+  cluster_name        = "yll-aks-cluster"
+  location            = "West Europe" # or reference from resource group
+  resource_group_name = "yll-devops" # or reference from existing RG
+  dns_prefix          = "hellocare"
+  node_count          = 2
+  vm_size             = "Standard_DS2_v2"
+  tags = {
+    environment = "dev"
+    owner       = "yll"
+  }
+}

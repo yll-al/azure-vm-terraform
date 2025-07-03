@@ -13,3 +13,9 @@ output "network_subnet_id" {
 output "nsg_id" {
   value = module.nsg.nsg_id
 }
+
+output "kube_config" {
+  description = "Kubeconfig for accessing the AKS cluster"
+  value       = module.aks.kube_config
+  sensitive   = true
+}
